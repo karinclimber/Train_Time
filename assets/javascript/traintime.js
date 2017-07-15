@@ -78,6 +78,7 @@ database.ref().on("child_added", function(childSnapshot){
 	console.log("ARRIVAL TIME: " + moment(nextTrain).format('HH:mm A'));
 	
 
+
  //update information in table 
 $('#currentTime').text(currentTime);
 $('#trainTable').append(
@@ -88,8 +89,10 @@ $('#trainTable').append(
 		"</td><td id='awayDisplay'>" + minsAway  + ' minutes until arrival' + "</td></tr>");
  },
 
+
 function(errorObject){
-    console.log("Read failed: " + errorObject.code)
+	console.log("Read failed: " + errorObject.code)
+	
 });
 
 database.ref().orderByChild("timeAdded").limitToLast(1).on("child_added", function(snapshot){
@@ -99,5 +102,12 @@ database.ref().orderByChild("timeAdded").limitToLast(1).on("child_added", functi
     $("#timeDisplay").html(snapshot.val().time);
     $("#freqDisplay").html(snapshot.val().freq);
 })
+
+$('#removeTrain').on('click', trainTable, function(){
+	//$("#trainTable").closest('tr').remove ();
+	var table = document.getElementById("trainTable");
+	table.deleteRow(table.rows.length-1);
+});
+	
 
 });
