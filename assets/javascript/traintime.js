@@ -54,7 +54,7 @@ database.ref().on("child_added", function(childSnapshot){
 //change train time from string to a number
 	var freq = parseInt(freq);
 	//CURRENT TIME
-	var currentTime = moment();
+	var currentTime = moment().format('LLLL');
 	console.log("CURRENT TIME: " + moment().format('HH:mm'));
 	//FIRST TIME: PUSHED BACK ONE YEAR TO COME BEFORE CURRENT TIME
 	// var dConverted = moment(time,'hh:mm').subtract(1, 'years');
@@ -63,23 +63,22 @@ database.ref().on("child_added", function(childSnapshot){
 	var trainTime = moment(dConverted).format('HH:mm');
 	console.log("TRAIN TIME : " + trainTime);
 	
-	//DIFFERENCE B/T THE TIMES 
+	//math
 	var tConverted = moment(trainTime, 'HH:mm').subtract(1, 'years');
 	var tDifference = moment().diff(moment(tConverted), 'minutes');
 	console.log("DIFFERENCE IN TIME: " + tDifference);
-	//REMAINDER 
+	//remainder
 	var tRemainder = tDifference % freq;
 	console.log("TIME REMAINING: " + tRemainder);
-	//MINUTES UNTIL NEXT TRAIN
+	//minutes until the next train
 	var minsAway = freq - tRemainder;
 	console.log("MINUTES UNTIL NEXT TRAIN: " + minsAway);
-	//NEXT TRAIN
+	//next train arrival
 	var nextTrain = moment().add(minsAway, 'minutes');
 	console.log("ARRIVAL TIME: " + moment(nextTrain).format('HH:mm A'));
-	//console.log(==============================);
+	
 
- //TABLE DATA=====================================================
- //APPEND TO DISPLAY IN TRAIN TABLE
+ //update information in table 
 $('#currentTime').text(currentTime);
 $('#trainTable').append(
 		"<tr><td id='nameDisplay'>" + childSnapshot.val().name +
@@ -94,7 +93,7 @@ function(errorObject){
 });
 
 database.ref().orderByChild("timeAdded").limitToLast(1).on("child_added", function(snapshot){
-    // Change the HTML to reflect
+    // update html with children
     $("#nameDisplay").html(snapshot.val().name);
     $("#destDisplay").html(snapshot.val().dest);
     $("#timeDisplay").html(snapshot.val().time);

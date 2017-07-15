@@ -37,3 +37,39 @@ body {
 .panel-title {
     padding-top: 10px;
 }
+@media screen and (max-width: 980px) {
+	#trainTable {
+		width: 80%;
+	}
+	#trainBox {
+		overflow: scroll;
+		width: fit-content;
+}
+	#addTrain {
+		width: 80%;
+	}
+}	
+@media screen and (max-width: 768px) {
+	#trainTable {
+		width: 80%;
+	}
+	#trainBox {
+		overflow: scroll;
+		width: fit-content;
+	}	
+	#addTrain {
+		width: 80%;
+	}
+}
+@media screen and (max-width: 640px) {
+	#trainTable {
+		width: 80%;
+	}
+	#trainBox {
+		overflow: scroll;
+		width: fit-content;
+	}
+	#addTrain {
+		width: 80%;
+	}
+}
