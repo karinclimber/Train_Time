@@ -68,7 +68,7 @@ database.ref().on("child_added", function(childSnapshot){
 	var nextTrain = moment().add(minsAway, 'minutes');
 	
 	
-// $(".form-group").validate({
+// $("#addTrain").validate({
 // 	rules: {
 // 		nameInput: "required",
 // 		destInput: "required",
