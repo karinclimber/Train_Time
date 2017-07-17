@@ -17,16 +17,19 @@
 	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
-
+	<!--Jquery Validation -->
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 </head>
 <body> 
+	<!-- Jumbotron/Title -->
 <div class="container">
 	<div class="jumbotron text-center" style="background-color: none; color: none">
 		<h1>All Aboard the ChooChooooooos...</h1>
 		<hr>
 		<h2>Current Time: <span id="currentTime"></span></h2>
-	</div> <!-- Jumbotron End -->
+	</div> 
 	
 	<div class="row" id="trainBox">
 		<div class="col-md-9">
@@ -69,8 +72,8 @@
 						    <input type="text" class="form-control" id="destInput" placeholder="Destination">
 						</div>
 						<div class="form-group">
-						    <label class="nextTrain" for="nextTrain">First Train Time</label><label class="milTime">&nbsp;(HH:mm - Military)</label>
-						    <input type="" class="form-control" id="timeInput" placeholder="00:00">
+							<label class="nextTrain" for="nextTrain">First Train Time</label>
+						    <input type="HH:mm" class="form-control" id="timeInput" placeholder="00:00 - Military Time">
 						</div>
 						<div class="form-group">
 						    <label for="minsAway">Frequency (mins) </label>

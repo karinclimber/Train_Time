@@ -37,6 +37,10 @@ body {
 .panel-title {
     padding-top: 10px;
 }
+
+.form-control {
+	margin-bottom: 10px;
+}
 @media screen and (max-width: 980px) {
 	#trainTable {
 		width: 80%;
