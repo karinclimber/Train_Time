@@ -35,8 +35,10 @@ $(document).ready(function() {
 		var newName = childSnapshot.val().name;
 		var newDest = childSnapshot.val().dest;
 		var newTime = childSnapshot.val().time;
-		var newFreq = childSnapshot.val().freq;
-		var currentTime = moment();
+        var newFreq = childSnapshot.val().freq;
+        
+        var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+        
 		console.log(moment(currentTime).format("LT"));
 		var firstTimeConverted = moment(newTime, "LT").subtract(1, "days");
 		// Get the difference between now and the time of the first train
